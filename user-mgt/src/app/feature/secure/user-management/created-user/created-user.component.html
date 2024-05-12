@@ -1,0 +1,55 @@
+<div class="pb-3 align-right d-flex add-bread-crumb-line">
+  <app-breadcrumb [data]="breadcrumbData"></app-breadcrumb>
+  <button class="btn-common-add btn-primary" (click)="addUser()"> Add User </button>
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table" summary="user lists">
+  <ng-container matColumnDef="first_name">
+    <th mat-header-cell *matHeaderCellDef>First Name</th>
+    <td mat-cell *matCellDef="let element">{{element.first_name}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="last_name">
+    <th mat-header-cell *matHeaderCellDef>Last Name</th>
+    <td mat-cell *matCellDef="let element">{{element.last_name}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let element">{{element.email}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+        class="action-button-dropdowns">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="edit(element.id)">
+          <mat-icon class="edit-icon">edit</mat-icon>
+          <span>Edit</span>
+        </button>
+        <button mat-menu-item (click)="openModal()">
+          <mat-icon class="edit-icon">delete</mat-icon>
+          <span>Delete</span>
+        </button>
+      </mat-menu>
+    </td>    
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<div class="pt-3">
+  <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+  </mat-paginator>
+</div>
+
+<div class="modal" *ngIf="showModal">
+  <div class="modal-content">
+      <p>Do you want to delete?</p>
+      <button  >Yes</button>
+      <button (click)="closeModal()">No</button>
+  </div>
+</div>

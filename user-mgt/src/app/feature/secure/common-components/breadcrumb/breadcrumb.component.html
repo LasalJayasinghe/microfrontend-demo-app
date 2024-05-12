@@ -1,0 +1,8 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <ng-container *ngFor="let breadCrumb of data">
+      <li class="breadcrumb-item" *ngIf="breadCrumb.url !== null"><a (click)="navigateToPage(breadCrumb.url)">{{breadCrumb.name}}</a></li>
+      <li class="breadcrumb-item active" aria-current="page" *ngIf="breadCrumb.url === null">{{breadCrumb.name}}</li>
+    </ng-container>
+  </ol>
+</nav>

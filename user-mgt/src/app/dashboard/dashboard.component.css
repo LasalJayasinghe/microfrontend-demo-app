@@ -1,0 +1,14 @@
+/* Decrease the size of the Angular logo */
+.angular-logo {
+    width: 100px; /* Adjust the width as per your preference */
+    height: auto;
+    margin-bottom: 20px; /* Optional: Add some spacing between the logo and text */
+  }
+  
+  /* Center the content within the container */
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  

@@ -1,0 +1,67 @@
+<div class="container admin-login-form-container">
+  <mat-card class="row p-4">
+    <div class="col-12 admin-login-main-header">
+      <h2>SIGN IN</h2>
+    </div>
+    <div class="col-12 admin-login-sub-header">
+      <p>Sign in using your credentials to manage Admin Portal.</p>
+    </div>
+    <div class="col-12 admin-login-form-wrapper">
+      <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group">
+              <label class="label">Username</label>
+              <input [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" autocomplete="off"
+                     class="form-control" formControlName="username" placeholder="Your username" type="text"/>
+              <div *ngIf="loginForm.touched && f['username'].errors" class="invalid-feedback">
+                <div *ngIf="f['username'].errors['required']">Username is required</div>
+                <div *ngIf="f['username'].errors['email']">Username is in invalid format</div>
+              </div>
+            </div>
+            <div class="form-group password-container">
+              <label class="label">Password</label>
+              <input [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+                     [type]="showPassword ? 'text' : 'password'" autocomplete="off"
+                     class="form-control" formControlName="password" placeholder="Your password"/>
+              <div *ngIf="loginForm.touched && f['password'].errors" class="invalid-feedback">
+                <div *ngIf="f['password'].errors['required']">Password is required</div>
+              </div>
+              <div class="eye-container">
+                <mat-icon (click)="showPassword = !showPassword"
+                          [class.hide]="showPassword">visibility
+                </mat-icon>
+                <mat-icon (click)="showPassword = !showPassword"
+                          [class.hide]="!showPassword">visibility_off
+                </mat-icon>
+              </div>
+            </div>
+          </div>
+          <!--              If you want enable google recapture please uncomment below code segment-->
+          <!--              <div class="col-sm-12 mb-2">-->
+          <!--                <re-captcha [(ngModel)]="token" class="recaptcha-input" formControlName="recaptcha" id="recaptcha"-->
+          <!--                            name="recaptcha" required></re-captcha>-->
+          <!--                <div *ngIf="submitted && f['recaptcha'].errors" class="invalid-feedback">-->
+          <!--                  <div *ngIf="f['recaptcha'].errors['required']">Recaptcha is required</div>-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <div class="col-12 mt-2 w-100">
+            <button
+                    class="d-flex btn btn-secondary primary-btn w-100 justify-content-center"
+                    type="submit">
+              Sign in
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-12 d-flex justify-content-center">
+      <p class="mt-3">Forgot your password?
+        <a [routerLink]="['/secure/dashboard']"><strong class="color-primary">Reset from here.</strong></a>
+      </p>
+    </div>
+  </mat-card>
+</div>
+<ngx-spinner type="timer" size="medium" [fullScreen] = "true">
+</ngx-spinner>

@@ -1,0 +1,60 @@
+<!-- Search Bar -->
+<div *ngIf="config" class="search-container">
+    <div *ngIf="config.includeSearchBar" class="search-bar">
+      <input type="text" [(ngModel)]="searchQuery" [placeholder]="placeholderText">
+    </div>
+  
+    <!-- Dropdown filter -->
+    <div *ngIf="config.dropdownOptions" class="dropdown-filter">
+      <select [(ngModel)]="selectedDropdownValue">
+        <option value="" disabled>Select an option</option>
+        <option *ngFor="let dropdownOption of config.dropdownOptions" [value]="dropdownOption">{{ dropdownOption }}</option>
+      </select>
+    </div>
+  
+    
+    <!-- Radio Button-->
+    <div *ngIf="config.radioOptions" class="radio-group">
+      <div *ngFor="let option of config.radioOptions">
+        <label>
+          <input
+            type="radio"
+            name="searchType"
+            [value]="option"
+            [(ngModel)]="selectedRadioOption"
+          />
+          {{ option }}
+        </label>
+      </div>
+    </div>
+  
+    <!-- Checkbox filter -->
+    <div *ngIf="config.CheckboxValues" class="checkbox-group">
+      <div *ngFor="let option of config.CheckboxValues">
+        <label>
+          <input
+            type="checkbox"
+            name="searchType"
+            [value]="option"
+            [(ngModel)]="selectedCheckboxValues[option]"
+          />
+          {{ option }}
+        </label>
+      </div>
+    </div>
+  
+    <!-- Date filter -->
+    <div *ngIf="config.includeDateRange" class="date-filter">
+      <label>From:</label>
+      <input type="date" [(ngModel)]="startDate">
+    
+      <label>To:</label>
+      <input type="date" [(ngModel)]="endDate">
+    </div>
+  
+    <!-- Search Button -->
+    <div>
+      <button class="search-button">Search</button>
+    </div>
+  </div>
+

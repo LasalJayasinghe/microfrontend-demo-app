@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Styles for the content area */
+.content {
+    min-height: calc(100vh - 50px); /* Adjust 100px to match the height of your footer */
+    position: relative;
+  }
+  

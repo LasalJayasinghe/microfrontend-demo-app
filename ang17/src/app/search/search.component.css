@@ -1,0 +1,48 @@
+/* Adjust the existing styles for .search-container */
+
+.search-container {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif; 
+    display: flex;
+    justify-content: space-between; /* Spread items evenly along the main axis */
+    align-items: center; /* Center items vertically */
+}
+
+/* Search Bar */
+.search-bar input {
+    width:100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+/* Radio Button */
+.radio-group {
+    display: flex;
+    align-items: center; /* Center items vertically */
+}
+
+.radio-group label {
+    margin-right: 10px; /* Add spacing between radio buttons and labels */
+}
+
+/* Date Filter */
+.date-filter {
+    display: flex;
+    align-items: center; /* Center items vertically */
+}
+
+.date-filter input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #333;
+    margin-left: 10px;
+    margin-right: 10px;
+}

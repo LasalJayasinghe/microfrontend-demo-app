@@ -1,0 +1,26 @@
+ /* Styles for grid */
+
+ .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 5px;
+  }
+  
+  .col-xs-12, .col-sm-6, .col-md-4, .col-lg-3 {
+    padding: 0 15px;
+  }
+  
+  .box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .text{
+    color: rgb(176, 35, 35) !important;
+  }
+
+  .wrapper-container {
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Distribute items along the main axis */
+}

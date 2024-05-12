@@ -1,0 +1,70 @@
+<mat-drawer-container>
+  <mat-drawer #sNav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="!mobileQuery.matches"
+              [ngClass]="{'sidenav-collapsed': collapsedNav && !mobileQuery.matches}">
+    <div class="sidenav-header">
+      <span class="header-text">
+        <!-- If we want to use nav image uncomment bellow line-->
+        <!--        <img src="assets/images/lbs-favicon.png">-->
+        {{collapsedNav && !mobileQuery.matches ? 'A' : 'Admin Portal'}}</span>
+    </div>
+    <mat-nav-list class="admin-main-menu-wrapper">
+
+      <!--      Dashboard Menu start-->
+      <mat-list-item [routerLink]="['/secure/dashboard']" (click)="subMenuActive('dashboard')"
+                     class="parent" matTooltipPosition="right" routerLinkActive="list-item-active">
+        <mat-icon mat-list-icon>dashboard</mat-icon>
+        <span class="admin-menu-text">Dashboard</span>
+      </mat-list-item>
+
+      <!--      User Management Menu start-->
+      <mat-list-item [routerLink]="['/secure/user-management/']" class="parent" routerLinkActive="list-item-active"
+                     (click)="subMenuActive('user-management')">
+        <mat-icon mat-list-icon class="mb-2">group</mat-icon>
+        <div class="admin-menu-text-wrapper">
+          <span class="admin-menu-text">User Management</span>
+          <mat-icon class="admin-sub-menu-button menu-button"
+                    [ngClass]="{'rotated' : getMenuStatus('user-management')}">
+            expand_more
+          </mat-icon>
+        </div>
+      </mat-list-item>
+      <div class="submenu" [ngClass]="{'expanded' : getMenuStatus('user-management')}">
+        <mat-list-item [routerLink]="['/secure/user-management/']" routerLinkActive="list-item-active">
+          <mat-icon matListIcon>person</mat-icon>
+          <span class="admin-menu-text">View Users</span>
+        </mat-list-item>
+      </div>
+    </mat-nav-list>
+    <div class="version-footer">
+      v1.0.0
+    </div>
+  </mat-drawer>
+  <mat-drawer-content [ngClass]="{'sidenav-collapsed': collapsedNav && !mobileQuery.matches}">
+    <mat-toolbar>
+      <button mat-icon-button (click)="mobileQuery.matches ? sNav.toggle() : collapsedNav = !collapsedNav">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="nav-user-wrapper" [matMenuTriggerFor]="menu" matTooltip="{{getUsername() | async}}">
+        <!-- If we use short name uncomment this and comment image-->
+        <span>{{getShortUsername() | async}}</span>
+        <!-- If we use profile image uncomment this and comment short name-->
+               <!-- <span><img src="assets/images/lbs-favicon.png"> </span> -->
+      </div>
+      <mat-menu #menu="matMenu" class="slc-sign-out-wrapper">
+        <button (click)="profile()" mat-menu-item>
+          <mat-icon>account_circle</mat-icon>
+          Profile
+        </button>
+        <button (click)="logout()" mat-menu-item>
+          <mat-icon>logout</mat-icon>
+          Sign-out
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+    <mat-card class="admin-main-container">
+      <mat-card-content>
+        <router-outlet></router-outlet>
+      </mat-card-content>
+    </mat-card>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,25 @@
+@import "../../../../assets/styles/varible";
+@import "../../../../assets/styles/colors";
+
+app-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background-color: $common-footer-color;
+  height: 28px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.public-layout-component {
+  display: flex;
+  height: 100vh;
+  width: 100vw !important;
+  justify-content: center;
+  align-items: center;
+  background-color: $common-bg-color-dark;
+  //background-image: url("https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-52379.jpg?w=1480&t=st=1690309474~exp=1690310074~hmac=e082adfcc55db395e207e0e69e345835877ca393f09b76b4cf639776e192f2d7");
+  background-size: cover;
+}

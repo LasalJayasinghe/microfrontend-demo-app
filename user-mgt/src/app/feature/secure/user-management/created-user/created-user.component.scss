@@ -1,0 +1,38 @@
+// You may add component-specific styles here as needed.
+// If the component doesn't require any additional styles,
+// feel free to leave this file empty or remove it.
+.edit-icon {
+  cursor: pointer;
+}
+
+.add-bread-crumb-line {
+  justify-content: space-between;
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 75%;
+  width: 25%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+}
+
+.modal-content button {
+  margin-right: 10px;
+}
